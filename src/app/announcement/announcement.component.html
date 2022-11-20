@@ -1,5 +1,18 @@
 <div class="announcement-container">
-    <div class="title">{{title}}</div>
-    <div class="description">{{description}}</div>
-    <div class="author">{{author | author}}</div>
+  <div class="title">{{ announcement.title }}</div>
+  <!-- <img [src]="announcement.imageUrl"> -->
+  <div class="description">{{ announcement.message }}</div>
+  <div class="actions">
+    <div>
+      <button mat-raised-button color="primary" (click)="editAnnouncement(announcement.id)">
+        <mat-icon>border_color</mat-icon>
+      </button>
+    </div>
+    <div>
+      <button mat-raised-button color="primary" (click)="deleteAnnouncement(announcement.id)">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="author">{{ announcement.author | author }}</div>
 </div>

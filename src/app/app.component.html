@@ -1,4 +1,1 @@
-<app-categories (emitCategory)="getSelectedCategory($event)"></app-categories>
-<div *ngFor="let announcement of announcementsToDisplay" class="app-container">
-  <app-announcement [title]="announcement.title" [description]="announcement.description" [author]="announcement.author"></app-announcement>
-</div>
+<router-outlet></router-outlet>

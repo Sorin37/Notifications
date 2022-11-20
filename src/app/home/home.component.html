@@ -1,0 +1,16 @@
+<body>
+  <div class="categories">
+    <app-categories
+      (emitCategory)="getSelectedCategory($event)"
+    ></app-categories>
+    <button mat-raised-button color="primary" routerLink="add">+</button>
+  </div>
+  <div style="width: 100%">
+    <div
+      *ngFor="let announcement of announcementsToDisplay"
+      class="app-container"
+    >
+      <app-announcement [announcement]="announcement" style="width: 250px; margin: 25px"></app-announcement>
+    </div>
+  </div>
+</body>

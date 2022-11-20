@@ -1,0 +1,45 @@
+<form class="example-form">
+  <mat-form-field class="" appearance="fill" color="primary">
+    <mat-label>Title</mat-label>
+    <input [(ngModel)]="newAnnouncement.title" matInput name="title" required />
+  </mat-form-field>
+  <br />
+  <mat-form-field class="" appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea
+      [(ngModel)]="newAnnouncement.message"
+      matInput
+      name="description"
+    ></textarea>
+  </mat-form-field>
+  <br />
+  <mat-form-field class="" appearance="fill">
+    <mat-label>Author</mat-label>
+    <input
+      [(ngModel)]="newAnnouncement.author"
+      matInput
+      name="author"
+      required
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field class="" appearance="fill">
+    <mat-label>Category</mat-label>
+    <mat-select [(ngModel)]="newAnnouncement.category" name="category">
+      <mat-option
+        *ngFor="let category of Categories"
+        [value]="category"
+      >
+        {{ category | enumToString }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <mat-form-field class="" appearance="fill">
+    <mat-label>ImageURL</mat-label>
+    <input [(ngModel)]="newAnnouncement.imageUrl" matInput name="imageUrl" />
+  </mat-form-field>
+</form>
+<button mat-raised-button color="primary" (click)="addAnnouncement()" routerLink="/">
+  +
+</button>

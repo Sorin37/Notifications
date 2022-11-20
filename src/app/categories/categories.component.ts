@@ -1,26 +1,26 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Categories } from '../categories';
+import { Categories } from '../Enumerations/categories';
 
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.scss']
+  styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent implements OnInit {
-
   categories: Categories[] = [
     Categories.All,
     Categories.General,
     Categories.Course,
-    Categories.Laboratory
-  ]
-  @Output() emitCategory: EventEmitter<Categories> = new EventEmitter<Categories>();
-  constructor() { }
+    Categories.Laboratory,
+  ];
 
-  ngOnInit(): void {
-  }
+  @Output() emitCategory: EventEmitter<Categories> =
+    new EventEmitter<Categories>();
+  constructor() {}
 
-  clickButton(index: number){
+  ngOnInit(): void {}
+
+  clickButton(index: number) {
     this.emitCategory.emit(this.categories[index]);
   }
 }

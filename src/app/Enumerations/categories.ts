@@ -1,6 +1,6 @@
 export enum Categories {
+    All,
     General,
     Course,
-    Laboratory,
-    All
+    Laboratory
 }
