@@ -14,7 +14,7 @@ export class AnnouncementService {
     })
   };
 
-  baseURL = 'https://newsapi20221108120432.azurewebsites.net/api';
+  baseURL = 'https://localhost:7146';
 
   constructor(private HttpClient: HttpClient) {}
 
@@ -23,14 +23,16 @@ export class AnnouncementService {
   }
 
   getAnnouncements(): Observable<Announcement[]>{
-    return this.HttpClient.get<Announcement[]>(this.baseURL + "/Announcements");
+    return this.HttpClient.get<Announcement[]>(this.baseURL + "/Announcement");
   }
 
   addAnnouncement(announcement: Announcement): Observable<Announcement> {
-    return this.HttpClient.post<Announcement>(this.baseURL + "/Announcements", 
+    return this.HttpClient.post<Announcement>(this.baseURL + "/Announcement", 
     {title: announcement.title,
      message: announcement.message, 
-     category: Categories[announcement.category],
+     category: announcement.category,
+     categoryId: announcement.categoryId.toString(),
+     description: "",
      author: announcement.author,
      imageUrl: announcement.imageUrl},
      this.httpOptions);
@@ -41,6 +43,6 @@ export class AnnouncementService {
 
   deleteAnnouncement(id:string):Observable<Announcement>{
     console.log(id);
-    return this.HttpClient.delete<Announcement>(this.baseURL + '/Announcements/' + id); 
+    return this.HttpClient.delete<Announcement>(this.baseURL + '/Announcement/' + id); 
   }
 }
